@@ -1,0 +1,123 @@
+body{
+  background-color: rgb(225,225,225);
+}
+
+.navbar-default, 
+.cor-padrao {
+  background-color: #337ab7;
+  border-color: #337ab7;
+}
+.navbar-default .navbar-brand {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #fdfdfd;
+}
+.navbar-default .navbar-text {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #fdfdfd;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #fdfdfd;
+  background-color: #1d5a8f;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #fdfdfd;
+  background-color: #0d4983;
+}
+.navbar-default .navbar-toggle {
+  border-color: #0d4983;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #0d4983;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ecf0f1;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #ecf0f1;
+}
+.navbar-default .navbar-link {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-link:hover {
+  color: #fdfdfd;
+}
+
+/***  Custon Style Para nosso painel ***/
+.navbar{
+  margin-bottom: 0 !important;
+  border-radius: 0;
+}
+
+.box{
+  position: relative;
+  top:40px;
+}
+
+header#header{
+  margin-bottom: 20px;
+  background-color: #333;
+  color: white;
+}
+
+header#header h2{
+  margin: 0;
+}
+
+header#header .row{
+  position: relative;
+  top: 10px;
+  padding: 20px 0;
+}
+
+header#header p{
+  position: relative;
+  top: 3px;
+}
+
+/*** Pagina de login ***/
+
+section.login{
+  min-width: 350px;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+}
+
+section.login input[type=checkbox]{
+  position: relative;
+  top: 2px;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #ecf0f1;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #fdfdfd;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #fdfdfd;
+    background-color: #0d4983;
+  }
+}
