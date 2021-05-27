@@ -22,6 +22,44 @@ class Page
     ];
 
     /**
+     * Método responsável por renderizar a paginação
+     * @param Request $request
+     * @param Pagination $obPagination
+     * @return string
+     */
+    public static function getPagination($request, $obPagination){
+        // PÁGINAS 
+        $pages = $obPagination->getPages();
+        
+        // VERIFICA A QUANTIDADE DE PÁGINAS 
+        if(count($pages) <= 1) return '';
+        // LINKS
+        $links = '';
+        // URL SEM OS GETS
+        $url = $request->getRouter()->getCurrentUrl();
+        
+        $queryParams = $request->getQueryParams();
+        
+        // RENDERIZA OS LINKS
+        foreach($pages as $page){
+           // ALTERA A PÁGINA 
+           $queryParams['page'] = $page['paginas'];
+
+           $link = $url.'?'.http_build_query($queryParams);
+           
+           $links .= View::render('admin/pagination/link',[
+               'page'=>$page['paginas'],
+               'link'=>$link,
+               'active'=>$page['atual'] ? 'active' : ''
+           ]);
+        }
+        // RENDERIZA A BOX DE PAGINAÇÃO
+        return View::render('admin/pagination/box',[
+            'links'=>$links
+        ]);
+    }
+
+    /**
      * Método reponsável pela view de page Admin
      * @return string
      */

@@ -146,7 +146,7 @@ class Router
         private function getUri(){
             // URI DA RESQUEST
             $uri = $this->request->getUri();
-
+            
             // FATIA A URI COM O PREFIXO
             $xUri = strlen($this->prefix) ? explode($this->prefix, $uri) : [$uri];
             
@@ -165,12 +165,14 @@ class Router
 
             // METHOD
             $httpMethod = $this->request->getHttpMethod();
-
+            
             // VALIDA AS ROTAS 
             foreach($this->routes as $patternRoute => $methods){
                 // VERIFICA SE A ROTA BATE COM O PADRÃO 
+                
                 if(preg_match($patternRoute,$uri,$matches)){
                     // VERIFICA O METODO 
+                    
                     if(isset($methods[$httpMethod])){
                         // REMOVE A PRIMEIRA POSIÇÃO
                         unset($matches[0]);
@@ -226,6 +228,14 @@ class Router
                 
                 return new Response($e->getCode(), $e->getMessage());
             }
+        }
+
+        /**
+         * Método responsável por pegar a URL sem os GETs
+         * @return string
+         */
+        public function getCurrentUrl(){
+            return $this->url.$this->getUri();
         }
 
         /**

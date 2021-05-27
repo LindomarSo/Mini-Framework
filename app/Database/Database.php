@@ -90,6 +90,22 @@ class Database
     }
 
     /**
+     * Método responsável por inserir um usuário no banco 
+     */
+    public function insert($params = []){
+        // CHAVES
+        $fields = array_keys($params);
+        // VALUES
+        $bind = array_pad([], count($fields), '?');
+        // MONTAR A QUERY
+        $query = "INSERT INTO ".$this->table." (".implode(',',$fields).") VALUES(".implode(',',$bind).")";
+        
+        $this->execute($query, array_values($params));
+
+        return $this->connection->lastInsertId();
+    }
+
+    /**
      * Método responsável por fazer um consulta no banco 
      * @param string $where
      * @param string $order
@@ -105,5 +121,33 @@ class Database
         $query = "SELECT ".$field." FROM ".$this->table." ".$where." ".$order." ".$limit;
         
         return $this->execute($query);
+    }
+
+    /**
+     * Método responsável por executar a atualização de um registro no banco
+     * @return boolean
+     */
+    public function update($where, $params = []){
+        // FIELDS
+        $fields = array_keys($params);
+        // MONTAR A QUERY
+        $query = "UPDATE ".$this->table." SET ".implode('=?,',$fields)."=? WHERE ".$where;
+        
+        $this->execute($query, array_values($params));
+
+        return true;
+    }
+
+    /**
+     * Método responsável por excluir um registro
+     * @return boolean
+     */
+    public function delete($where){
+        // MONTAR A QUERY
+        $query = "DELETE FROM ".$this->table." WHERE ".$where;
+
+        $this->execute($query);
+
+        return true;
     }
 }

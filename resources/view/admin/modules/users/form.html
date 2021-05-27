@@ -1,21 +1,22 @@
-<h2>Editar Usuário</h2>
+<h2><i class="bi bi-pencil-square"></i> {{description}}</h2>
 <hr>
 <a href="{{URL}}/admin/users">
     <button class="btn btn-warning">Voltar</button>
 </a>
 <hr>
+{{status}}
 <form action="" method="POST">
     <div class="mb-3">
         <label for="nome" class="form-label">Nome:</label>
-        <input type="text" name="nome" value="{{nome}}" class="form-control">
+        <input type="text" name="nome" value="{{nome}}" class="form-control" placeholder="Nome" required autofocus>
     </div>
     <div class="mb-3">
         <label for="email" class="form-label">E-mail:</label>
-        <input type="email" name="email" value="{{email}}" class="form-control">
+        <input type="email" name="email" value="{{email}}" class="form-control" placeholder="email@teste.com" required>
     </div>
     <div class="mb-3">
         <label for="senha" class="form-label">Senha:</label>
-        <input type="password" name="senha" class="form-control">
+        <input type="password" name="senha" class="form-control" placeholder="*********" required>
     </div>  
     <div class="mb-3">
         <button type="submit" class="btn btn-info">Enviar</button>

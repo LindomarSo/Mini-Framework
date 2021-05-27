@@ -49,7 +49,19 @@
             $this->postVars = $_POST ?? [];
             $this->headers = getallheaders(); // FUNÇÃO QUE OBTEM TODOS OS HEADERS
             $this->httpMethod = $_SERVER['REQUEST_METHOD'] ?? '';
+            $this->setUri();
+        }
+
+        /**
+         * Método responsável por definir a URI
+         */
+        private function setUri(){
+            // URI COMPLETA COM GETS
             $this->uri = $_SERVER['REQUEST_URI'] ?? '';
+
+            // REMOVE OS GETS DA URI
+            $xUri = explode('?', $this->uri);
+            $this->uri = $xUri[0];
         }
 
         /**
