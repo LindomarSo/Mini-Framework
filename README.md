@@ -1,4 +1,5 @@
-# Site-Completo
-Site completo com painel de controle e banco de dados, PHP, SQL, HMTL5, CSS3, Javascript.
+# FRAMEWORK
 
-Com a adição do padrão MVC este projeto pode ser usado como base para diversos outros projetos.
+A partir deste framework voce pode criar de forma fácil um aplicação PHP todas.
+
+Esta tudo muito bem comentado o que facilida bastante o trabalho de quem está desenvolvendo.
